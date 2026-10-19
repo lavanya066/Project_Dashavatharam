@@ -1,0 +1,37 @@
+import serial
+import time
+
+PORT = "/dev/cu.usbserial-0001"
+
+BAUD_RATE = 115200
+
+COLORS = {
+    "RED": 0x04,
+    "ORANGE_RED": 0x08,
+    "ORANGE": 0x0C,
+    "YELLOW_ORANGE": 0x10,
+    "LEMON_YELLOW": 0x14,
+    "GREEN": 0x05,
+    "GREENISH_BLUE": 0x09,
+    "SKY_BLUE": 0x0D,
+    "TURQUOISE": 0x11,
+    "GREENISH_BLUE_2": 0x15,
+    "BLUE": 0x06,
+    "PURPLE": 0x0A,
+    "VIOLET": 0x0E,
+    "PINK": 0x12,
+    "BABY_PINK": 0x16,
+}
+
+def send_color(code):
+
+    print(f"Sending → {code}")
+
+def main():
+    # with serial.Serial(PORT, BAUD_RATE, timeout=1) as esp:
+    #     time.sleep(2)  # Wait for the connection to establish
+
+        
+    for color, code in COLORS.items():
+        send_color(code)
+        time.sleep(1)  # Wait before sending the next color
